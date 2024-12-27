@@ -287,8 +287,21 @@ function getIndexOf(str, letter) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  let result = false;
+  let n = num;
+  while (n > 0) {
+    if (n % 10 === digit) {
+      result = true;
+      break;
+    }
+
+    if (num / 10 < 1) {
+      break;
+    }
+    n = Math.floor(n / 10);
+  }
+  return result;
 }
 
 /**
@@ -304,8 +317,23 @@ function isContainNumber(/* num, digit */) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
+function getBalanceIndex(arr) {
+  let index = -1;
+  for (let i = 1; i < arr.length - 1; i += 1) {
+    let sum1 = 0;
+    let sum2 = 0;
+    for (let j = 0; j < i; j += 1) {
+      sum1 += arr[j];
+    }
+    for (let j = i + 1; j < arr.length; j += 1) {
+      sum2 += arr[j];
+    }
+    if (sum1 === sum2) {
+      index = i;
+      break;
+    }
+  }
+  return index;
 }
 
 /**
@@ -349,6 +377,24 @@ function getSpiralMatrix(/* size */) {
  *  ]                 ]
  */
 function rotateMatrix(/* matrix */) {
+  // const tmpMatrix = [[], [], []];
+  // const resultMatrix = [[], [], []];
+  // for (let i = matrix.length - 1; i >= 0; i -= 1) {
+  //   for (let j = 0; j < matrix[i].length; j += 1) {
+  //     tmpMatrix[i][j] = matrix[j][i];
+  //   }
+  // }
+  // for (let i = 0; i < matrix.length; i += 1) {
+  //   for (let j = matrix.length - 1; j >= 0; j -= 1) {
+  //     resultMatrix[i].push(tmpMatrix[i][j]);
+  //   }
+  // }
+  // for (let i = 0; i < matrix.length; i += 1) {
+  //   for (let j = 0; j < matrix[i].length; j += 1) {
+  //     matrix[i][j] = resultMatrix[i][j];
+  //   }
+  // }
+  // return matrix;
   throw new Error('Not implemented');
 }
 
